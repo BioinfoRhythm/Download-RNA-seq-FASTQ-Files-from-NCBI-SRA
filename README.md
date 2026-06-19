@@ -41,4 +41,42 @@ fasterq-dump --version
 Download one sample with prefetch:
 ```bash
 prefetch --max-size u SRR15403782
-```  
+```
+
+The option --max-size u removes the default download size limit.
+
+```bash
+ls SRR15403782
+```
+
+You should see:
+
+```bash
+SRR15403782.sra
+```
+
+## 3. Download Multiple SRR Samples
+
+Create a file called sra.txt and add one accession per line:
+```bash
+SRR15403001
+SRR15403002
+SRR15400003
+SRR15400004
+SRR15400005
+```
+
+Download all runs with:
+
+```bash
+mkdir -p sra
+
+prefetch \
+    --option-file sra.txt \
+    --max-size u \
+    --output-directory sra
+```
+
+
+
+
