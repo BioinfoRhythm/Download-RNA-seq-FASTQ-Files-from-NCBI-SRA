@@ -3,11 +3,3 @@ A concise guide for downloading RNA-seq sequencing data from the NCBI Sequence R
 
 1. Install SRA Toolkit
 Conda
-```conda install -c bioconda sra-tools ```
-Verify Installation
-prefetch --version
-fasterq-dump --version
-
-Example:
-prefetch : 3.x.x
-fasterq-dump : 3.x.x
