@@ -77,6 +77,69 @@ prefetch \
     --output-directory sra
 ```
 
+## 4. Parallel Download with GNU Parallel
+
+Install GNU Parallel:
+
+```bash
+sudo apt install parallel
+```
+
+Run multiple downloads at the same time:
+
+```bash
+cat sra.txt | parallel -j 12 \
+'prefetch --max-size u {} --output-directory sra'
+```
+
+Notes:
+
+-j 12 runs up to 12 downloads at once.
+
+Downloading is usually network-limited, not CPU-limited.
+
+Having more CPU cores does not always make downloads faster.
+
+## 5. Convert SRA to FASTQ
+
+Convert the single .sra file to FASTQ:
+
+```bash
+fasterq-dump \
+  --split-files \
+  --threads 30 \
+  SRR15403782
+```
+For paired-end data, this creates:
+
+```bash
+SRR15403782_1.fastq
+SRR15403782_2.fastq
+```
+Convert multiple  .sra file to FASTQ:
+
+```bash
+mkdir -p fastq
+
+cat sra.txt | parallel -j 5 \
+'fasterq-dump \
+    --split-files \
+    --threads 6 \
+    --outdir fastq \
+    sra/{}/{}.sra'
+```
+
+project/
+├── sra/
+│   ├── SRR15403782/
+│   ├── SRR15403783/
+│   └── ...
+├── fastq/
+│   ├── SRR15403782_1.fastq
+│   ├── SRR15403782_2.fastq
+│   ├── SRR15403783_1.fastq
+│   └── ...
+└── sra.txt
 
 
 
