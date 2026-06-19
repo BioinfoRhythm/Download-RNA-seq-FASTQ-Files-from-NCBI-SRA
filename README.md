@@ -26,3 +26,19 @@ This tutorial covers:
 ```bash
 conda install -c bioconda sra-tools
 ```
+
+## Verify Installation
+
+```bash
+prefetch --version
+```
+```bash
+fasterq-dump --version
+```
+
+## 2. Download a Single SRR Sample
+
+Download one sample with prefetch:
+```bash
+prefetch --max-size u SRR15403782
+```  
