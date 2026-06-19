@@ -9,3 +9,19 @@ This tutorial covers:
 - Parallel downloads with GNU Parallel
 - Using multiple CPU cores efficiently
 - Common troubleshooting tips
+
+
+Table of Contents
+
+Install SRA Toolkit
+Download a Single SRR Sample
+Convert SRA to FASTQ
+Compress FASTQ Files
+Download Multiple Samples
+Parallel Download with GNU Parallel
+Convert Multiple Samples
+Use All CPU Cores
+Monitor Progress
+Validate Downloads
+Common Errors
+Complete Workflow
