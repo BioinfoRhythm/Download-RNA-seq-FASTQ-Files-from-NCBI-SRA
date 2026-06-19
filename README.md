@@ -130,15 +130,25 @@ cat sra.txt | parallel -j 5 \
 ```
 
 project/
+
 ├── sra/
+
 │   ├── SRR15403782/
+
 │   ├── SRR15403783/
+
 │   └── ...
+
 ├── fastq/
+
 │   ├── SRR15403782_1.fastq
+
 │   ├── SRR15403782_2.fastq
+
 │   ├── SRR15403783_1.fastq
+
 │   └── ...
+
 └── sra.txt
 
 
