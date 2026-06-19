@@ -23,6 +23,6 @@ This tutorial covers:
 ## 1. Install SRA Toolkit
 
 ## Using conda
-| ```bash
+```bash
 conda install -c bioconda sra-tools
 ```
