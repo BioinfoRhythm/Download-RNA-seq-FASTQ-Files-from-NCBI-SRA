@@ -7,8 +7,7 @@ This tutorial covers:
 - Converting SRA files to FASTQ
 - Downloading multiple SRR accessions
 - Parallel downloads with GNU Parallel
-- Using multiple CPU cores efficiently
-- Common troubleshooting tips
+
 ## Features
 
 | Feature | Description |
@@ -129,27 +128,6 @@ cat sra.txt | parallel -j 5 \
     sra/{}/{}.sra'
 ```
 
-project/
-
-├── sra/
-
-│   ├── SRR15403782/
-
-│   ├── SRR15403783/
-
-│   └── ...
-
-├── fastq/
-
-│   ├── SRR15403782_1.fastq
-
-│   ├── SRR15403782_2.fastq
-
-│   ├── SRR15403783_1.fastq
-
-│   └── ...
-
-└── sra.txt
 
 
 
