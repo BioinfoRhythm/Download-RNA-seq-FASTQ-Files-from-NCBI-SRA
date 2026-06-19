@@ -19,3 +19,10 @@ This tutorial covers:
 | Multi-core processing | Utilize all available CPU cores |
 | Progress monitoring | Track downloads and conversions |
 | Troubleshooting | Fix common SRA Toolkit errors |
+
+## 1. Install SRA Toolkit
+
+## Using conda
+| ```bash
+conda install -c bioconda sra-tools
+```
