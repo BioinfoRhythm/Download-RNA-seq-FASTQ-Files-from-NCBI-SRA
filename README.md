@@ -3,9 +3,9 @@ A concise guide for downloading RNA-seq sequencing data from the NCBI Sequence R
 
 This tutorial covers:
 
-Downloading .sra files from NCBI
-Converting SRA files to FASTQ
-Downloading multiple SRR accessions
-Parallel downloads with GNU Parallel
-Using multiple CPU cores efficiently
-Common troubleshooting tips
+- Downloading `.sra` files from NCBI
+- Converting SRA files to FASTQ
+- Downloading multiple SRR accessions
+- Parallel downloads with GNU Parallel
+- Using multiple CPU cores efficiently
+- Common troubleshooting tips
