@@ -128,6 +128,80 @@ cat sra.txt | parallel -j 5 \
     sra/{}/{}.sra'
 ```
 
+## 6. Use All CPU Cores Efficiently
+
+Instead of using all 30 threads on a single file, run several conversions in parallel:
+
+```bash 
+cat sra.txt | parallel -j 5 \
+'fasterq-dump --threads 6 --split-files sra/{}/{}.sra'
+```
+
+This uses:
+
+```bash
+5 jobs × 6 threads = 30 CPU cores
+9. Monitor Progress
+```
+
+Check the size of the download directory:
+
+```bash
+watch -n 10 'du -sh sra'
+```
+
+Check the FASTQ directory:
+
+```bash
+watch -n 10 'du -sh fastq'
+```
+
+Check active downloads:
+
+ps -ef | grep prefetch | grep -v grep
+
+Count active downloads:
+
+ps -ef | grep prefetch | grep -v grep | wc -l
+10. Validate Downloaded Files
+
+Validate one downloaded run:
+
+vdb-validate SRR15403782
+
+If the file is valid, you should see output like:
+
+info: file is consistent
+11. Common Errors
+Error: Maximum file size download limit is 20GB
+
+Example:
+
+SRR13772208 is larger than maximum allowed
+
+Fix:
+
+prefetch --max-size u SRR13772208
+Error: failed to resolve accession 'EOF'
+
+This means your accession list contains an extra line:
+
+EOF
+
+Remove it with:
+
+sed -i '/^EOF$/d' sra.txt
+Error: Not all CPU cores are being used
+
+This is normal during downloading.
+
+Downloads depend on:
+
+Network speed
+NCBI server response
+Number of SRR accessions
+
+CPU usage matters more during fasterq-dump than during prefetch.
 
 
 
