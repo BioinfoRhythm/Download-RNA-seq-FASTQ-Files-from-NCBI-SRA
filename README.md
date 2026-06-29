@@ -198,7 +198,9 @@ This is normal during downloading.
 Downloads depend on:
 
 Network speed
+
 NCBI server response
+
 Number of SRR accessions
 
 CPU usage matters more during fasterq-dump than during prefetch.
