@@ -144,7 +144,7 @@ This uses:
 9. Monitor Progress
 ```
 
-Check the size of the download directory:
+## 7. Check the size of the download directory:
 
 ```bash
 watch -n 10 'du -sh sra'
@@ -158,12 +158,15 @@ watch -n 10 'du -sh fastq'
 
 Check active downloads:
 
+```bash
 ps -ef | grep prefetch | grep -v grep
-
+```
 Count active downloads:
 
+```bash
 ps -ef | grep prefetch | grep -v grep | wc -l
-10. Validate Downloaded Files
+```
+## 8. Validate Downloaded Files
 
 Validate one downloaded run:
 
@@ -172,7 +175,8 @@ vdb-validate SRR15403782
 If the file is valid, you should see output like:
 
 info: file is consistent
-11. Common Errors
+
+## 9. Common Errors
 Error: Maximum file size download limit is 20GB
 
 Example:
@@ -181,7 +185,9 @@ SRR13772208 is larger than maximum allowed
 
 Fix:
 
+```bash
 prefetch --max-size u SRR13772208
+```
 Error: failed to resolve accession 'EOF'
 
 This means your accession list contains an extra line:
@@ -190,7 +196,9 @@ EOF
 
 Remove it with:
 
+```bash
 sed -i '/^EOF$/d' sra.txt
+```
 Error: Not all CPU cores are being used
 
 This is normal during downloading.
